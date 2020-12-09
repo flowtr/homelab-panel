@@ -11,6 +11,7 @@ logs
 
 # Environment
 *.env*
+config.y*
 
 # Misc
 .DS_Store
