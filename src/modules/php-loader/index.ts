@@ -1,10 +1,10 @@
 import { Request, Response } from "@tinyhttp/app";
-import { PhpClient } from "./php";
-import { PhpConfiguration } from "./util";
 import { parse as parseURL } from "url";
+import { PHPFPM } from "tsnode-phpfpm";
 import path from "upath";
+import { PhpConfiguration } from "./util";
 export const loader = (config: PhpConfiguration) => {
-    const php = new PhpClient(config);
+    const php = new PHPFPM(config);
     return async (req: Request, res: Response) => {
         const url = parseURL(req.url);
         const phpFile = path.basename(url.pathname);

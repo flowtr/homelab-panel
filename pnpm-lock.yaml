@@ -13,6 +13,7 @@ dependencies:
   http-proxy: 1.18.1
   joi: 17.3.0
   pug: 3.0.0
+  tsnode-phpfpm: 1.0.2
   upath: 2.0.1
   vhost-ts: 4.0.0
 devDependencies:
@@ -460,6 +461,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-/Sge3BymXo4lKc31C8OINJgXLaw+7vL1/L1pGiBNpGrBiT8FQiaFpSYV0uhTaG4y78vcMBTMFsWaHDvuD+xGzQ==
+  /@types/node/13.13.35:
+    dev: false
+    resolution:
+      integrity: sha512-q9aeOGwv+RRou/ca4aJVUM/jD5u7LBexu+rq9PkA/NhHNn8JifcMo94soKm0b6JGSfw/PSNdqtc428OscMvEYA==
   /@types/node/14.14.11:
     dev: true
     resolution:
@@ -1377,6 +1382,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
+  /fastcgi-client/0.0.1:
+    dev: false
+    engines:
+      node: ^0.10.0 || ^4.0.0 || ^5.0.0
+    resolution:
+      integrity: sha1-EEbUL/LO4qmsA/6gRpWz73MRhhw=
   /fastq/1.9.0:
     dependencies:
       reusify: 1.0.4
@@ -1457,6 +1468,12 @@ packages:
       node: ^10.12.0 || >=12.0.0
     resolution:
       integrity: sha512-dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg==
+  /flat/1.6.2:
+    dependencies:
+      is-buffer: 1.1.6
+    dev: false
+    resolution:
+      integrity: sha512-HdPlh/wtH+gVflFX49UV70kA2fF9oSgz3ICQE9OixGf3+llz+TZMuCpg53qg89lo6ZGiH4dbMtPElZeQ3ij3CA==
   /flat/5.0.2:
     hasBin: true
     resolution:
@@ -1728,6 +1745,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==
+  /is-buffer/1.1.6:
+    dev: false
+    resolution:
+      integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==
   /is-core-module/2.2.0:
     dependencies:
       has: 1.0.3
@@ -3113,6 +3134,12 @@ packages:
       typescript: '>=2.7'
     resolution:
       integrity: sha512-hPlt7ZACERQGf03M253ytLY3dHbGNGrAq9qIHWUY9XHYl1z7wYngSr3OQ5xmui8o2AaxsONxIzjafLUiWBo1Fg==
+  /tsc/1.20150623.0:
+    deprecated: you probably meant to install typescript
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha1-Trw8d04WkUjLx2inNCUz8ILHpuU=
   /tsconfig-paths/3.9.0:
     dependencies:
       '@types/json5': 0.0.29
@@ -3136,6 +3163,16 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
+  /tsnode-phpfpm/1.0.2:
+    dependencies:
+      '@types/node': 13.13.35
+      fastcgi-client: 0.0.1
+      tsc: 1.20150623.0
+      typescript: 3.9.7
+      urlencode-for-php: 1.0.4
+    dev: false
+    resolution:
+      integrity: sha512-/eaT9dbdZImVKBMQQVZZetz3W6KXZfUDgUuyr8+4Dhp//NKUlYGkaigHFYrSiFKTLAbVl+1Sw4miMZFxw0gwWw==
   /tsutils/3.17.1_typescript@4.1.2:
     dependencies:
       tslib: 1.14.1
@@ -3173,6 +3210,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==
+  /typescript/3.9.7:
+    dev: false
+    engines:
+      node: '>=4.2.0'
+    hasBin: true
+    resolution:
+      integrity: sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
   /typescript/4.1.2:
     dev: true
     engines:
@@ -3192,6 +3236,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-B0yRTzYdUCCn9n+F4+Gh4yIDtMQcaJsmYBDsTSG8g/OejKBodLQ2IHfN3bM7jUsRXndopT7OIXWdYqc1fjmV6g==
+  /urlencode-for-php/1.0.4:
+    dependencies:
+      flat: 1.6.2
+    dev: false
+    resolution:
+      integrity: sha512-e4SU1jHM4v2Ld32pDkt6KBpmRVxHm6MMvfBVORipf8PZa/RMOj0yftmGJgD4o2NmcP97lZR037ugVq/0TmgZfA==
   /uuid/3.4.0:
     dev: true
     hasBin: true
@@ -3414,6 +3464,7 @@ specifiers:
   pug: ^3.0.0
   ts-mocha: 8.0.0
   ts-node-dev: ^1.1.0
+  tsnode-phpfpm: ^1.0.2
   typescript: 4.1.2
   upath: ^2.0.1
   vhost-ts: ^4.0.0

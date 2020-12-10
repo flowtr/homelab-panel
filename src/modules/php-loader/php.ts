@@ -5,7 +5,7 @@ import {
     PhpRequest,
     RequestInfo,
 } from "./util";
-import {FcgiClient} from "fibjs-fastcgi-client";
+import { FcgiClient } from "fibjs-fastcgi-client";
 
 export class PhpClient {
     private configuration: PhpConfiguration = {
