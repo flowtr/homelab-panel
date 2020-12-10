@@ -4,8 +4,11 @@ dependencies:
   '@tinyhttp/logger': 1.0.5
   '@tinyhttp/session': 1.0.3
   '@toes/core': 0.0.2
+  acme-middleware: 0.0.98
   aio-config: 1.1.5
   colorette: 1.2.1
+  fibjs-fastcgi-client: 1.0.14
+  flat: 5.0.2
   http-proxy: 1.18.1
   joi: 17.3.0
   pug: 3.0.0
@@ -581,6 +584,24 @@ packages:
     dev: true
     resolution:
       integrity: sha512-sL/cEvJWAnClXw0wHk85/2L0G6Sj8UB0Ctc1TEMbKSsmpRosqhwj9gWgFRZSrBr2f9tiXISwNhCPmlfqUqyb9Q==
+  /acme-client/4.1.2:
+    dependencies:
+      axios: 0.21.0
+      backo2: 1.0.2
+      bluebird: 3.7.2
+      debug: 4.3.1
+      node-forge: 0.10.0
+    dev: false
+    engines:
+      node: '>= 10'
+    resolution:
+      integrity: sha512-3GlqDVWHgm0xpfnwOME/OpEBwEgO2vOplGEN8miWS7n7A28U9C7MtuTg6AuPYo8Lmqu4SADllnZrMLNasVNLEQ==
+  /acme-middleware/0.0.98:
+    dependencies:
+      acme-client: 4.1.2
+    dev: false
+    resolution:
+      integrity: sha512-hj9VxebxoWozgfEx5+qoo5bAylwQL7it1Msi2OIWWTvlmoyyJ7m5GJSaAwhNpBeI3iPWcFa+8azEkoeSYCUsBw==
   /acorn-jsx/5.3.1_acorn@7.4.0:
     dependencies:
       acorn: 7.4.0
@@ -741,6 +762,12 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-+Ryf6g3BKoRc7jfp7ad8tM4TtMiaWvbF/1/sQcZPkkS7ag3D5nMBCe2UfOTONtAkaG0tO0ij3C5Lwmf1EiyjHg==
+  /axios/0.21.0:
+    dependencies:
+      follow-redirects: 1.13.0
+    dev: false
+    resolution:
+      integrity: sha512-fmkJBknJKoZwem3/IKSSLpkdNXZeBu5Q7GA/aRsr2btgrptmSCxi2oFjZHqGdK9DoTil9PIHlPIZw2EcRJXRvw==
   /babel-walk/3.0.0-canary-5:
     dependencies:
       '@babel/types': 7.12.7
@@ -749,6 +776,10 @@ packages:
       node: '>= 10.0.0'
     resolution:
       integrity: sha512-GAwkz0AihzY5bkwIY5QDR+LvsRQgB/B+1foMPvi0FZPMl5fjD7ICiznUiBdLYMH1QYe6vqu4gWYytZOccLouFw==
+  /backo2/1.0.2:
+    dev: false
+    resolution:
+      integrity: sha1-MasayLEpNjRj41s+u2n038+6eUc=
   /balanced-match/1.0.0:
     dev: true
     resolution:
@@ -759,6 +790,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-1Yj8h9Q+QDF5FzhMs/c9+6UntbD5MkRfRwac8DoEm9ZfUBZ7tZ55YcGVAzEe4bXsdQHEk+s9S5wsOKVdZrw0tQ==
+  /bluebird/3.7.2:
+    dev: false
+    resolution:
+      integrity: sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
   /brace-expansion/1.1.11:
     dependencies:
       balanced-match: 1.0.0
@@ -1011,7 +1046,6 @@ packages:
   /debug/4.3.1:
     dependencies:
       ms: 2.1.2
-    dev: true
     engines:
       node: '>=6.0'
     peerDependencies:
@@ -1344,6 +1378,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-i7FVWL8HhVY+CTkwFxkN2mk3h+787ixS5S63eb78diVRc1MCssarHq3W5cj0av7YDSwmaV928RNag+U1etRQ7w==
+  /fibjs-fastcgi-client/1.0.14:
+    dev: false
+    resolution:
+      integrity: sha512-F4QVSTqPQf73IJFAOPQAgsTBXt5Hq12UZIIivTD8sNRIlakKBqE4enMfH8OPqi0ATZK9SLAb3h8YPXG09AVnxQ==
   /file-entry-cache/6.0.0:
     dependencies:
       flat-cache: 3.0.4
@@ -1415,7 +1453,6 @@ packages:
     resolution:
       integrity: sha512-dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg==
   /flat/5.0.2:
-    dev: true
     hasBin: true
     resolution:
       integrity: sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ==
@@ -2117,7 +2154,6 @@ packages:
     resolution:
       integrity: sha512-cuLBVfyFfFqbNR0uUKbDGXKGk+UDFe6aR4os78XIrMQpZl/nv7JYHcvP5MFIAb374b2zFXsdgEGwmzMtP0Xg8w==
   /ms/2.1.2:
-    dev: true
     resolution:
       integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
   /nanoid/3.1.12:
@@ -2144,6 +2180,12 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
+  /node-forge/0.10.0:
+    dev: false
+    engines:
+      node: '>= 6.0.0'
+    resolution:
+      integrity: sha512-PPmu8eEeG9saEUvI97fm4OYxXVB6bFvyNTyiUOBichBpFG8A1Ljw3bY62+5oOjDEMHRnd0Y7HQ+x7uzxOzC6JA==
   /node-preload/0.2.1:
     dependencies:
       process-on-spawn: 1.0.0
@@ -3349,12 +3391,15 @@ specifiers:
   '@types/pug': ^2.0.4
   '@typescript-eslint/eslint-plugin': 4.9.1
   '@typescript-eslint/parser': 4.9.1
+  acme-middleware: ^0.0.98
   aio-config: ^1.1.5
   chai: 4.2.0
   colorette: ^1.2.1
   eslint: 7.15.0
   eslint-config-prettier: 7.0.0
   eslint-plugin-prettier: 3.2.0
+  fibjs-fastcgi-client: ^1.0.14
+  flat: ^5.0.2
   http-proxy: ^1.18.1
   joi: ^17.3.0
   mocha: 8.2.1

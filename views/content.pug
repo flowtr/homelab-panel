@@ -7,5 +7,6 @@ html(lang="en")
         link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet")
     body
         div.container
-            p  #{content || "No Content"}
+            h2 #{header || "Untitled Page"}
+            p  !{content || "No Content"}
         script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js")

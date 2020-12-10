@@ -19,3 +19,4 @@ config.y*
 
 # IDE Settings
 .vscode
+.idea

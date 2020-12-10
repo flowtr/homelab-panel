@@ -8,7 +8,7 @@ import path from "upath";
 import { renderFile } from "pug";
 import httpProxy from "http-proxy";
 import vhost from "vhost-ts";
-
+import { loader as phpLoader } from "./modules/php-loader";
 async function main() {
     const app = new App();
     const proxy = httpProxy.createProxyServer({});
@@ -25,27 +25,50 @@ async function main() {
     // Load proxied sites
     config.toObject().sites?.forEach((site) => {
         site.sources.forEach((s) => {
-            app.use(
-                vhost(s, (req, res) => {
-                    try {
-                        proxy.web(req, res, { target: site.target });
-                    } catch {
-                        return res.redirect("/404");
-                    }
-                })
-            );
-            app.use(`/s/${s}`, (req, res) => {
-                try {
-                    proxy.web(req, res, { target: site.target });
-                } catch {
-                    return res.redirect("/404");
+            if (site.serve) {
+                if (site.serve.loader === "php") {
+                    app.use(
+                        `/s/${s}`,
+                        phpLoader({
+                            host: "127.0.0.1",
+                            port: 9000,
+                            root: site.serve.root,
+                        })
+                    );
+                    app.use(
+                        vhost(
+                            s,
+                            phpLoader({
+                                host: "127.0.0.1",
+                                port: 9000,
+                                root: site.serve.root,
+                            })
+                        )
+                    );
                 }
-            });
+            } else {
+                app.use(
+                    vhost(s, (req, res) => {
+                        proxy.web(req, res, { target: site.proxyTo }, (err) => {
+                            return res.render("content.pug", {
+                                header: "Site Not Found",
+                                content: err.toString(),
+                            });
+                        });
+                    })
+                );
+                app.use(`/s/${s}`, (req, res) => {
+                    req.url = req.url.replace(`s/${s}`, "");
+                    proxy.web(req, res, { target: site.proxyTo }, (err) => {
+                        if (err)
+                            return res.render("content.pug", {
+                                header: "Site Not Found",
+                                content: `<h3>Details:</h3>${err.toString()}`,
+                            });
+                    });
+                });
+            }
         });
-    });
-
-    app.get("/404", (_, res) => {
-        res.render("index.pug", { content: "Site Not Found" });
     });
 
     app.engine("pug", (path, data, opts, cb) =>
