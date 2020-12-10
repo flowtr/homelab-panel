@@ -9,13 +9,13 @@ export const loader = (config: PhpConfiguration) => {
     return async (req: Request, res: Response) => {
         const url = parseURL(req.url);
         const phpFile = path.basename(url.pathname);
-        logger.debug(`Serving php file: ${phpFile}`);
+        // logger.debug(`Serving php file: ${phpFile}`);
         php.run(phpFile, (err, output, phpError) => {
             if (err == 99)
                 return res
                     .status(500)
                     .send(
-                        `<h1>Encountered PHP FPM Error</h1><p>Code: ${err}</p>`
+                        `<h1>Encountered PHP FPM Error</h1><p>Code: ${err}. ${phpError}</p>`
                     );
             if (phpError)
                 return res
