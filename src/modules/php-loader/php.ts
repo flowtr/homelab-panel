@@ -11,7 +11,7 @@ export class PhpClient {
     private configuration: PhpConfiguration = {
         host: "127.0.0.1",
         port: 9000,
-        root: "",
+        documentRoot: "",
         skipCheckServer: true,
         environmentVariables: {},
     };
@@ -24,13 +24,13 @@ export class PhpClient {
 
         // fixing the document root
         if (
-            this.configuration.root?.substring(
-                this.configuration.root.length - 1
+            this.configuration.documentRoot?.substring(
+                this.configuration.documentRoot.length - 1
             ) == "/"
         )
-            this.configuration.root = this.configuration.root.substring(
+            this.configuration.documentRoot = this.configuration.documentRoot.substring(
                 0,
-                this.configuration.root.length - 1
+                this.configuration.documentRoot.length - 1
             );
 
         this.client = new FcgiClient(configuration);
@@ -112,7 +112,7 @@ export class PhpClient {
         if (!info.uri.match(/^\//)) info.uri = "/" + info.uri;
 
         let phpFile: string = info.uri;
-        phpFile = this.configuration.root + phpFile;
+        phpFile = this.configuration.documentRoot + phpFile;
 
         // generating environment variables to send php-fpm
         // Default server vars
@@ -125,7 +125,7 @@ export class PhpClient {
             SCRIPT_NAME: phpFile.split("/").pop(),
             REQUEST_URI: info.url,
             DOCUMENT_URI: info.uri,
-            DOCUMENT_ROOT: this.configuration.root,
+            DOCUMENT_ROOT: this.configuration.documentRoot,
             SERVER_PROTOCOL: "HTTP/1.1",
             GATEWAY_INTERFACE: "CGI/1.1",
             REMOTE_ADDR: "127.0.0.1",

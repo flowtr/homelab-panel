@@ -32,7 +32,7 @@ async function main() {
                         phpLoader({
                             host: "127.0.0.1",
                             port: 9000,
-                            root: site.serve.root,
+                            documentRoot: site.serve.root,
                         })
                     );
                     app.use(
@@ -41,7 +41,7 @@ async function main() {
                             phpLoader({
                                 host: "127.0.0.1",
                                 port: 9000,
-                                root: site.serve.root,
+                                documentRoot: site.serve.root,
                             })
                         )
                     );

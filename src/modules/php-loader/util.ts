@@ -3,7 +3,7 @@ import flat from "flat";
 export type PhpConfiguration = {
     host?: string;
     port?: number;
-    root?: string;
+    documentRoot?: string;
     skipCheckServer?: boolean;
     environmentVariables?: Record<string, string>;
 };
