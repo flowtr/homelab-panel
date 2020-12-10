@@ -32,7 +32,7 @@ export const configSchema = Joi.object<HomelabConfig, HomelabConfig>({
                     .required()
                     .default([])
                     .min(1),
-                proxyTo: Joi.string().required().uri({}),
+                proxyTo: Joi.string().optional().uri({}),
                 serve: Joi.object({
                     root: Joi.string().default("/var/www/html").optional(),
                     loader: Joi.string().valid("php").default("php"),
