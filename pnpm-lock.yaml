@@ -7,6 +7,7 @@ dependencies:
   acme-middleware: 0.0.98
   aio-config: 1.1.5
   colorette: 1.2.1
+  coroutine: 0.3.1
   fibjs-fastcgi-client: 1.0.14
   flat: 5.0.2
   http-proxy: 1.18.1
@@ -988,6 +989,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-4FJkXzKXEDB1snCFZlLP4gpC3JILicCpGbzG9f9G7tGqGCzETQ2hWPrcinA9oU4wtf2biUaEH5065UnMeR33oA==
+  /coroutine/0.3.1:
+    dev: false
+    resolution:
+      integrity: sha1-s+YZ9qIgKeDGEUF3TCcycI2kqAk=
   /create-require/1.1.1:
     dev: true
     resolution:
@@ -3395,6 +3400,7 @@ specifiers:
   aio-config: ^1.1.5
   chai: 4.2.0
   colorette: ^1.2.1
+  coroutine: ^0.3.1
   eslint: 7.15.0
   eslint-config-prettier: 7.0.0
   eslint-plugin-prettier: 3.2.0

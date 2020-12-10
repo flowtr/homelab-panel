@@ -47,6 +47,7 @@
         "acme-middleware": "^0.0.98",
         "aio-config": "^1.1.5",
         "colorette": "^1.2.1",
+        "coroutine": "^0.3.1",
         "fibjs-fastcgi-client": "^1.0.14",
         "flat": "^5.0.2",
         "http-proxy": "^1.18.1",

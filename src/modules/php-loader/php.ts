@@ -5,7 +5,7 @@ import {
     PhpRequest,
     RequestInfo,
 } from "./util";
-import fcgi from "fibjs-fastcgi-client";
+import {FcgiClient} from "fibjs-fastcgi-client";
 
 export class PhpClient {
     private configuration: PhpConfiguration = {
@@ -33,7 +33,7 @@ export class PhpClient {
                 this.configuration.root.length - 1
             );
 
-        this.client = new fcgi.FcgiClient(configuration);
+        this.client = new FcgiClient(configuration);
         this.client.on("ready", () => {
             this.ready = true;
             this.clearQueue();
